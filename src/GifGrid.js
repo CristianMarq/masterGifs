@@ -1,7 +1,10 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import { GifGriditem } from "./GifGriditem";
 
 export const GifGrid = ({ category }) => {
+  const [images, setimages] = useState([]);
+
   useEffect(() => {
     getGif();
   }, []);
@@ -22,11 +25,16 @@ export const GifGrid = ({ category }) => {
     });
 
     console.log(gifs);
+    setimages(gifs);
   };
 
   return (
     <div>
       <h3>{category}</h3>
+
+      {images.map((img) => {
+        return <GifGriditem key={img.id} {...img} />;
+      })}
     </div>
   );
 };
