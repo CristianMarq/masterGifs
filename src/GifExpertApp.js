@@ -3,7 +3,7 @@ import { AddCategory } from "./components/AddCategory";
 import { GifGrid } from "./GifGrid";
 
 const GifExpertApp = () => {
-  const [categories, setcategories] = useState("Transformers");
+  const [categories, setcategories] = useState(["Transformers"]);
 
   return (
     <>
